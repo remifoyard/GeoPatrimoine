@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class PatrimoineHistorique {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "nom")

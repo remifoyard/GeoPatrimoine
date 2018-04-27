@@ -5,8 +5,6 @@ import com.equipe4.GeoPatrimoine1.repository.PatrimoineHistoriqueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 public class PatrimoineHistoriqueService {
 
