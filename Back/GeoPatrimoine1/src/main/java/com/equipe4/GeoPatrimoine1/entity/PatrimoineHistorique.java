@@ -12,6 +12,9 @@ public class PatrimoineHistorique {
     @Column(name = "nom")
     private String nom;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "horaires")
     private String horaires;
 
@@ -29,19 +32,18 @@ public class PatrimoineHistorique {
     private String commune;
 
     @Column(name = "tarif")
-    private Double tarif;
+    private String tarif;
 
     @Column(name = "tarifMin")
-    private Double tarifMin;
+    private String tarifMin;
 
     @Column(name = "tarifMax")
-    private Double tarifMax;
+    private String tarifMax;
 
     @Column(name = "geoTag")
     private String geoTag;
 
     @Column(name = "lienImage")
-
     private String lienImage;
 
     @Column(name = "lienAudio")
@@ -103,27 +105,27 @@ public class PatrimoineHistorique {
         this.commune = commune;
     }
 
-    public Double getTarif() {
+    public String getTarif() {
         return tarif;
     }
 
-    public void setTarif(Double tarif) {
+    public void setTarif(String tarif) {
         this.tarif = tarif;
     }
 
-    public Double getTarifMin() {
+    public String getTarifMin() {
         return tarifMin;
     }
 
-    public void setTarifMin(Double tarifMin) {
+    public void setTarifMin(String tarifMin) {
         this.tarifMin = tarifMin;
     }
 
-    public Double getTarifMax() {
+    public String getTarifMax() {
         return tarifMax;
     }
 
-    public void setTarifMax(Double tarifMax) {
+    public void setTarifMax(String tarifMax) {
         this.tarifMax = tarifMax;
     }
 
@@ -149,6 +151,14 @@ public class PatrimoineHistorique {
 
     public void setLienAudio(String lienAudio) {
         this.lienAudio = lienAudio;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }
