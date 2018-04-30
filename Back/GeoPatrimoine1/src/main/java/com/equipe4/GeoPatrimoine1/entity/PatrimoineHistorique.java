@@ -40,6 +40,13 @@ public class PatrimoineHistorique {
     @Column(name = "geoTag")
     private String geoTag;
 
+    @Column(name = "lienImage")
+
+    private String lienImage;
+
+    @Column(name = "lienAudio")
+    private String lienAudio;
+
     public Long getId() {
         return id;
     }
@@ -126,6 +133,22 @@ public class PatrimoineHistorique {
 
     public void setGeoTag(String geoTag) {
         this.geoTag = geoTag;
+    }
+
+    public String getLienImage() {
+        return lienImage;
+    }
+
+    public void setLienImage(String lienImage) {
+        this.lienImage = lienImage;
+    }
+
+    public String getLienAudio() {
+        return lienAudio;
+    }
+
+    public void setLienAudio(String lienAudio) {
+        this.lienAudio = lienAudio;
     }
 
 }
