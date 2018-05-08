@@ -11,8 +11,17 @@ public class PatrimoineHistoriqueService {
     @Autowired
     private PatrimoineHistoriqueRepository patrimoineHistoriqueRepository;
 
-    public PatrimoineHistorique  findById(Long id){
+    public List<PatrimoineHistorique>  findAll(){
+        return patrimoineHistoriqueRepository.findAll();
+    }
+	
+	public PatrimoineHistorique  findById(Long id){
         return patrimoineHistoriqueRepository.getOne(id);
+
+    }
+	
+	 public List<PatrimoineHistorique>  findByNom(String nom) {
+        return patrimoineHistoriqueRepository.findByNomIgnoreCase(nom);
     }
 
     public PatrimoineHistorique creerPatrimoineHistorique(PatrimoineHistorique ph) {

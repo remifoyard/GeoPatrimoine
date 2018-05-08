@@ -6,5 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PatrimoineHistoriqueRepository extends JpaRepository<PatrimoineHistorique, Long> {
+	
+	List<PatrimoineHistorique> findByNomIgnoreCase(String nom);
 
 }
