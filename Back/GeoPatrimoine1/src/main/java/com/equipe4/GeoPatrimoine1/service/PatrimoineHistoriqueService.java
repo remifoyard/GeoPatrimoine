@@ -19,7 +19,7 @@ public class PatrimoineHistoriqueService {
     }
     
     public PatrimoineHistorique  findById(Long id){
-        return patrimoineHistoriqueRepository.getOne(id);
+        return patrimoineHistoriqueRepository.findOneById(id);
     }
     
     
