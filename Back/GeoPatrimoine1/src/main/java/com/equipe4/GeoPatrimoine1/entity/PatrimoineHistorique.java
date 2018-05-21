@@ -19,7 +19,6 @@ public class PatrimoineHistorique {
     private String horaires;
 
     @Column(name = "telephone")
-
     private Long telephone;
 
     @Column(name = "adresse")

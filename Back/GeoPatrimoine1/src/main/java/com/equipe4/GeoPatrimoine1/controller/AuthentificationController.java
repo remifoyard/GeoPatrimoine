@@ -9,8 +9,10 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.equipe4.GeoPatrimoine1.entity.AuthRetour;
 import com.equipe4.GeoPatrimoine1.entity.Authentification;
 import com.equipe4.GeoPatrimoine1.service.AuthentificationService;
 
@@ -43,7 +45,6 @@ public class AuthentificationController {
 	 */
 	@RequestMapping(value = "/admin/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public Authentification findById(@PathVariable final Long id) {
-		//LOGGER.debug("Requête REST pour récupérer l'administrateur  à partir de son id.");
 		return authentificationService.findById(id);
 	}
 	
@@ -51,12 +52,22 @@ public class AuthentificationController {
 	 * GET /admin/:login, mdp -> récupérer l'administrateur par la combinaison de son login et mdm.
 	 *
 	 * @param login de l'administrateur, mdp de l'administrateur
-	 * @return l'administrateur
+	 * @return une combinaison message et code : "OK" et 1 si l'utilisateur est reconnu, "KO" et 0 dans le cas contraire
 	 */
-	@RequestMapping(value = "/admin/login/mdp", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Authentification findByNom(@PathVariable final String login,@PathVariable final String mdp) {
-	
-		return authentificationService.findByLoginAndMdp(login, mdp);
+	@RequestMapping(value = "/admin/auth", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	public AuthRetour findByNom(@RequestParam("utilisateur") final String login,@RequestParam("motDePasse") final String mdp) {
+		
+		final Authentification utilisateur = authentificationService.findByLoginAndMdp(login, mdp);
+		final AuthRetour authRetour = new AuthRetour();
+		authRetour.setMessage("KO");
+		authRetour.setCode(0);
+		if (utilisateur != null) {
+			authRetour.setMessage("OK");
+			authRetour.setCode(1);	
+		}
+		
+		return authRetour;
+		
 	}
 	
 	
