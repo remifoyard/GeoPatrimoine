@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -59,6 +60,26 @@ public class PatrimoineHistoriqueController {
 		//LOGGER.debug("Requête REST pour récupérer le point d'intérêt à partir d'une chaine de caractère à l'intérieur du nom.");
 		return patrimoineHistoriqueService.findByTag(tag);
 	}
+	
+	/**
+	 * Delete
+	 * GET /patrimoineHistorique/{id} -> delete by id
+	 * @param id
+	 */
+	@RequestMapping(value="/patrimoineHistorique/delete/{id}", method = RequestMethod.GET)
+	public void deleteById(@PathVariable final Long id) {
+		patrimoineHistoriqueService.deletePatrimoineHistorique(id);
+	}
+	
+	/**
+	 * Save
+	 * POST /patrimoineHistorique/save
+	 * @param point d'intérêt
+	 */
+	@RequestMapping(value="/patrimoineHistorique/save", method = RequestMethod.POST)
+    public void savePatrimoineHistorique(@RequestBody PatrimoineHistorique ph) {
+		patrimoineHistoriqueService.creerPatrimoineHistorique(ph);
+    }
 
 }
 
