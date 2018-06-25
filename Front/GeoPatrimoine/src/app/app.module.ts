@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
 
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { MapComponent } from './map/map.component';
     MapComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,LeafletModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
