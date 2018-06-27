@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MapComponent } from './map/map.component';
-
+import {MaterialModule} from './material/material.module';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     MapComponent
   ],
   imports: [
-    BrowserModule,LeafletModule.forRoot()
+    BrowserModule,LeafletModule.forRoot(),MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
