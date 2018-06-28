@@ -7,12 +7,14 @@ import { MapComponent } from './map/map.component';
 import {MaterialModule} from './material/material.module';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { ListComponent } from './list/list.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
-    ListComponent
+    ListComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,LeafletModule.forRoot(),MaterialModule
