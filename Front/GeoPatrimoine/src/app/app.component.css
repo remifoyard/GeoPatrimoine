@@ -1,0 +1,21 @@
+.content{
+
+    width: 60rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
+    
+    
+}
+
+.liste{
+    background-color: aqua;
+    width: 20rem;
+    float: left;
+    height: max-content;
+   
+}
+
+.map{
+    float: left;
+    width: 40rem;
+}
