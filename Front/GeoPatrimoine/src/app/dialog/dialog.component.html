@@ -1,3 +1,6 @@
-<p>
-  dialog works!
-</p>
+
+    <button mat-raised-button (click)="openDialog()">Sign In</button>
+  
+  <div *ngIf="animal">
+    You chose: <i>{{animal}}</i>
+  </div>

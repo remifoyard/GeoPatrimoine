@@ -19,3 +19,14 @@
     float: left;
     width: 40rem;
 }
+
+img{
+    width: 2rem;
+
+}
+
+#dialog{
+    float: right;
+    padding-left: 5rem;
+}
+
