@@ -1,4 +1,20 @@
-<!--<mat-toolbar>
-  <span>GeoPatrimoine</span>
-</mat-toolbar>-->
-<app-map></app-map>
+<mat-toolbar color="primary">
+  <img src="../assets/Logo-GeoPatrimoine.svg">
+  GeoPatrimoine
+  <div id="dialog">
+  <app-dialog></app-dialog></div>
+  <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput  >
+      </mat-form-field>
+    <button>Search</button>
+    
+    </form>
+</mat-toolbar>
+<div class="content">
+<div class="map">
+<app-map></app-map></div>
+<div class="liste">
+  <app-list></app-list>
+</div>
+</div>
