@@ -10,6 +10,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { ListComponent } from './list/list.component';
 import { DialogComponent, DialogOverviewExampleDialog } from './dialog/dialog.component';
 import {MatInputModule} from '@angular/material';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import {MatInputModule} from '@angular/material';
     DialogOverviewExampleDialog
   ],
   imports: [
-    BrowserModule,LeafletModule.forRoot(),MaterialModule,BrowserAnimationsModule,FormsModule,MatInputModule
+    BrowserModule,LeafletModule.forRoot(),MaterialModule,BrowserAnimationsModule,FormsModule,MatInputModule, AppRoutingModule
   ],
   providers: [DialogOverviewExampleDialog],
   entryComponents:[DialogOverviewExampleDialog],
