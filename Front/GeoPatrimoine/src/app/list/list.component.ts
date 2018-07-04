@@ -10,9 +10,9 @@ import { ReadApiService } from '../read-api.service';
 export class ListComponent implements OnInit {
 public arrData: string [];
   constructor(private readApi : ReadApiService) { }
-
+  file='http://localhost:8080/api/patrimoineHistorique';
   ngOnInit() {
-    this.readApi.findAll().subscribe(
+    this.readApi.findAll(this.file).subscribe(
       data => {
         this.arrData = data as string [];	 
       }/*,

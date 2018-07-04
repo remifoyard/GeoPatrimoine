@@ -30,10 +30,10 @@ export class MapComponent implements OnInit {
       center: latLng(45.759012, 4.8351189)
     };
   }
-
+  file='http://localhost:8080/api/patrimoineHistorique';
   ngOnInit() {
     
-    this.readApi.findAll().subscribe(
+    this.readApi.findAll(this.file).subscribe(
       data => {
         /*this.arrData = data as string [];	*/
         this.donneesChargees(data); 

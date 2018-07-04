@@ -6,8 +6,8 @@ export class ReadApiService {
 
   constructor(private http:HttpClient) { }
   arrData: string[] ;
-
-findAll(){
-   return this.http.get('http://localhost:8080/api/patrimoineHistorique');}
+//'http://localhost:8080/api/patrimoineHistorique'
+findAll(file: string){
+   return this.http.get(file);}
 
 }
