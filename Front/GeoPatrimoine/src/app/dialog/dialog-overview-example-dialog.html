@@ -1,17 +1,17 @@
-<h1 mat-dialog-title>Authentification</h1>
+<h1 mat-dialog-title>S'AUTHENTIFIER</h1>
 <div mat-dialog-content>
-  <p>Login</p>
+  <p>login</p>
   <mat-form-field>
     <input matInput [(ngModel)]="data.animal">
   </mat-form-field>
-  <p>Password</p>
+  <p>mot de passe</p>
   <mat-form-field>
       <input matInput [(ngModel)]="data.animal">
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Annuler</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Valider</button>
+
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Connexion</button>
 </div>
 
 
