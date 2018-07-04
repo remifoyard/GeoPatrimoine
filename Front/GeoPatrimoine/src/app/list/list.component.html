@@ -1,5 +1,11 @@
 <mat-list role="list">
-  <mat-list-item role="listitem">Item 1</mat-list-item>
-  <mat-list-item role="listitem">Item 2</mat-list-item>
-  <mat-list-item role="listitem">Item 3</mat-list-item>
+  
+
+<div *ngFor="let element of arrData;">
+   
+        <mat-list-item role="listitem"> {{element.nom}}</mat-list-item>
+     
+    
+ 
+</div>
 </mat-list>
