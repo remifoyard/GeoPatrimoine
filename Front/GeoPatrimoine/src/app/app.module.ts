@@ -11,6 +11,8 @@ import { ListComponent } from './list/list.component';
 import { DialogComponent, DialogOverviewExampleDialog } from './dialog/dialog.component';
 import {MatInputModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     DialogOverviewExampleDialog
   ],
   imports: [
-    BrowserModule,LeafletModule.forRoot(),MaterialModule,BrowserAnimationsModule,FormsModule,MatInputModule, AppRoutingModule
+    BrowserModule,LeafletModule.forRoot(),MaterialModule,BrowserAnimationsModule,FormsModule,MatInputModule, AppRoutingModule,HttpClientModule
   ],
-  providers: [DialogOverviewExampleDialog],
+  providers: [DialogOverviewExampleDialog,HttpClient],
   entryComponents:[DialogOverviewExampleDialog],
   bootstrap: [AppComponent]
 })
