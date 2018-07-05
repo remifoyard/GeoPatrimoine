@@ -1,14 +1,21 @@
-.content{
+body{
+	margin: 0 px;
+}
 
+#header{
+	background-color: #dd2b3e;
+	font-family: DK Lemon Yellow Sun;
+}
+
+.content{
     width: 60rem;
     margin-left: 4rem;
     margin-right: 4rem;
     
-    
 }
 
 .liste{
-    background-color: aqua;
+    background-color: #3e3e3e;
     width: 20rem;
     float: left;
     height: max-content;
@@ -21,8 +28,12 @@
 }
 
 img{
-    width: 2rem;
+    width: 3rem;
+	padding-right: 0.5rem; 
+}
 
+.logoTitle{
+	font-size: 3rem;
 }
 
 #dialog{
