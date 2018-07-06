@@ -2,19 +2,25 @@
   <img src="../assets/Logo-GeoPatrimoine-FondRouge.svg">
   <span class="logoTitle">G</span>eo<span class="logoTitle">P</span>atrimoine
   <div id="dialog">
-  <app-dialog></app-dialog></div>
-  <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <input matInput  >
-      </mat-form-field>
-    <button>Search</button>
-    
-    </form>
+  <app-dialog class="buttonConnect"></app-dialog></div>
 </mat-toolbar>
+
 <div class="content">
-<div class="map">
-<app-map></app-map></div>
-<div class="liste">
-  <app-list></app-list>
+	<form>
+		<a href=""><img src="../assets/Icone-Loupe.svg" ></a>
+		<mat-form-field>
+			<input matInput>
+		</mat-form-field>
+	</form>
+	
+	<div class="map">
+	<app-map></app-map></div>
+	<div class="liste">
+		<h5>Resultats</h5>
+	  <app-list></app-list>
+	</div>
 </div>
-</div>
+
+<footer>
+	<p>Copyright Equipe_4 - 2018</p>
+</footer>
