@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.equipe4.GeoPatrimoine1.entity.AuthRetour;
-import com.equipe4.GeoPatrimoine1.entity.Authentification;
-import com.equipe4.GeoPatrimoine1.service.AuthentificationService;
+import com.equipe4.GeoPatrimoine1.entity.Utilisateur;
+import com.equipe4.GeoPatrimoine1.service.UtilisateurService;
 
 
 /**
@@ -25,7 +25,7 @@ import com.equipe4.GeoPatrimoine1.service.AuthentificationService;
 public class AuthentificationController {
 	
 	@Autowired
-	private AuthentificationService authentificationService;
+	private UtilisateurService utilisateurService;
 	
 	/**
 	 * GET /patrimoineHistorique -> récupérer tous les administrateurs .
@@ -33,8 +33,8 @@ public class AuthentificationController {
 	 * @return la liste des administrateur
 	 */
 	@RequestMapping(value = "/admin", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Authentification> findAllUsers() {
-		return authentificationService.findAll();
+	public List<Utilisateur> findAllUsers() {
+		return utilisateurService.findAll();
 	}
 	
 	/**
@@ -44,8 +44,8 @@ public class AuthentificationController {
 	 * @return l'administrateur
 	 */
 	@RequestMapping(value = "/admin/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public Authentification findById(@PathVariable final Long id) {
-		return authentificationService.findById(id);
+	public Utilisateur findById(@PathVariable final Long id) {
+		return utilisateurService.findById(id);
 	}
 	
 	/**
@@ -57,7 +57,7 @@ public class AuthentificationController {
 	@RequestMapping(value = "/admin/auth", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public AuthRetour findByNom(@RequestParam("utilisateur") final String login,@RequestParam("motDePasse") final String mdp) {
 		
-		final Authentification utilisateur = authentificationService.findByLoginAndMdp(login, mdp);
+		final Utilisateur utilisateur = utilisateurService.findByLoginAndMdp(login, mdp);
 		final AuthRetour authRetour = new AuthRetour();
 		authRetour.setMessage("KO");
 		authRetour.setCode(0);
