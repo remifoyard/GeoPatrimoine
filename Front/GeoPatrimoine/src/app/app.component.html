@@ -1,19 +1,13 @@
-<mat-toolbar class="mat-toolbar" color="accent" >
-  <img src="../assets/Logo-GeoPatrimoine.svg">
-  GeoPatrimoine
-  <div id="dialog">
-  <app-dialog ></app-dialog></div>
-  <form class="example-form">
-      <mat-form-field class="example-full-width">
-        <input matInput  >
-      </mat-form-field>
-    <button (click)="search()">Search</button>
-    
-    </form>
+<mat-toolbar id="header" class="mat-toolbar" color="primary" >
+	<img src="../assets/Logo-GeoPatrimoine-FondRouge.svg">
+	<h2>G<span>eo</span>P<span>atrimoine</span></h2>
+	<div id="dialog" color="primary">
+		<app-dialog ></app-dialog>
+	</div>
 </mat-toolbar>
 
 <div class="content">
-	<form>
+	<form color="primary">
 		<a href=""><img src="../assets/Icone-Loupe.svg" ></a>
 		<mat-form-field>
 			<input matInput>

@@ -1,18 +1,25 @@
-#header{
-	background-color: #dd2b3e;
-	font-family: DK Lemon Yellow Sun, 'Arial', sans-serif;
-}
 
 #header img{
     width: 3rem;
 	padding-right: 0.5rem;
+	margin-left: 20%;
 }
 
-.logoTitle{
+#header h2 {
+	font-family: DK Lemon Yellow Sun, 'Arial', sans-serif;
 	font-size: 3rem;
+	margin-right: auto;
 }
 
-.content{
+#header h2 span {
+	font-size: 2rem;
+}
+
+#dialog {
+	margin-right: 20%;
+}
+
+.content {
 	width: 60rem;
 	height: 37rem;
 	margin-left: auto;
@@ -74,8 +81,3 @@ footer p {
 	margin: 0px;
 }
 
-
-element.style {
-  
-    background-color: red;
-}
