@@ -1,0 +1,6 @@
+@import '~@angular/material/theming';
+
+@import './custom-theme.scss';
+
+ @include angular-material-theme($geo-app-theme);
+

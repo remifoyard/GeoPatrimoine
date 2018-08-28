@@ -11,10 +11,11 @@
         "assets",
         "favicon.ico",
         {
-          "glob": "**/*",
-          "input": "../node_modules/leaflet/dist/images",
-          "output": "./assets/"
-        }
+  "glob": "**/*",
+  "input": "../node_modules/leaflet/dist/images",
+  "output": "./assets/",
+  "allowOutsideOutDir": false
+}
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -24,7 +25,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -59,7 +60,8 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
-    "component": {}
+    "styleExt": "scss",
+    "component": {
+    }
   }
 }

@@ -1,13 +1,13 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="mat-toolbar" color="accent" >
   <img src="../assets/Logo-GeoPatrimoine.svg">
   GeoPatrimoine
   <div id="dialog">
-  <app-dialog></app-dialog></div>
+  <app-dialog ></app-dialog></div>
   <form class="example-form">
       <mat-form-field class="example-full-width">
         <input matInput  >
       </mat-form-field>
-    <button>Search</button>
+    <button (click)="search()">Search</button>
     
     </form>
 </mat-toolbar>

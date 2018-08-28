@@ -1,0 +1,120 @@
+
+@import 'leaflet/dist/leaflet.css';
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+$md-georouge: (
+    50 : #fbe6e8,
+    100 : #f5bfc5,
+    200 : #ee959f,
+    300 : #e76b78,
+    400 : #e24b5b,
+    500 : #dd2b3e,
+    600 : #d92638,
+    700 : #d42030,
+    800 : #cf1a28,
+    900 : #c7101b,
+    A100 : #fff5f5,
+    A200 : #ffc2c4,
+    A400 : #ff8f94,
+    A700 : #ff757b,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-geogris: (
+    50 : #e8e8e8,
+    100 : #c5c5c5,
+    200 : #9f9f9f,
+    300 : #787878,
+    400 : #5b5b5b,
+    500 : #3e3e3e,
+    600 : #383838,
+    700 : #303030,
+    800 : #282828,
+    900 : #1b1b1b,
+    A100 : #f07575,
+    A200 : #eb4747,
+    A400 : #ff0000,
+    A700 : #e60000,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-white: (
+    50 : #ffffff,
+    100 : #ffffff,
+    200 : #ffffff,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+
+$geo-app-primary: mat-palette($md-georouge);
+$geo-app-accent:  mat-palette($md-geogris);
+$geo-app-warn: mat-palette($md-white);
+$geo-app-theme: mat-light-theme($geo-app-primary,$geo-app-accent,$geo-app-warn);
+
+
+@include angular-material-theme($geo-app-theme);
