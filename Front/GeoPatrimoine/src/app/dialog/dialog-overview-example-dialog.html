@@ -1,19 +1,17 @@
-<h1 mat-dialog-title>S'AUTHENTIFIER</h1>
+<div class="dialog">
+<h1 mat-dialog-title>S'IDENTIFIER</h1>
 <div mat-dialog-content>
-  <p>login</p>
-  <mat-form-field>
-    <input matInput [(ngModel)]="data.animal">
-  </mat-form-field>
-  <p>mot de passe</p>
-  <mat-form-field>
-      <input matInput [(ngModel)]="data.animal">
-    </mat-form-field>
+	<p>login</p>
+	<mat-form-field> <input matInput
+		[(ngModel)]="data.animal"> </mat-form-field>
+	<p>mot de passe</p>
+	<mat-form-field> <input matInput
+		[(ngModel)]="data.animal"> </mat-form-field>
 </div>
 <div mat-dialog-actions>
-
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Connexion</button>
+	<button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Connexion</button>
 </div>
-
+</div>
 
 <!-- Copyright 2018 Google Inc. All Rights Reserved.
     Use of this source code is governed by an MIT-style license that
