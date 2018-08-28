@@ -1,33 +1,77 @@
-.content{
-
-    width: 60rem;
-    margin-left: 4rem;
-    margin-right: 4rem;
-    
-    
+#header{
+	background-color: #dd2b3e;
+	font-family: DK Lemon Yellow Sun, 'Arial', sans-serif;
 }
 
-.liste{
-    background-color: aqua;
-    width: 20rem;
-    float: left;
-    height: max-content;
-   
+#header img{
+    width: 3rem;
+	padding-right: 0.5rem;
+}
+
+.logoTitle{
+	font-size: 3rem;
+}
+
+.content{
+	width: 60rem;
+	height: 37rem;
+	margin-left: auto;
+  	margin-right: auto;
+  	padding: 1rem;
+    background-color: white;
+}
+
+.content form {
+	width: 60rem;
+	height: 2rem;
+	margin: 0px;
+	margin-bottom: 0.5rem;
+	padding: 0px;
+}
+
+a img{
+	background-color: #3e3e3e;
+	border-radius: 5px;
+	width: 2rem;
+	height: 2rem;
 }
 
 .map{
-    float: left;
     width: 40rem;
+    margin-right: 0.5rem;
+    float: left;
 }
 
-img{
-    width: 2rem;
-
+.liste{
+    background-color: #3e3e3e;
+    width: 19rem;
+    height: max-content;
+    display: inline-block;
+    margin-left: 0.5rem;
 }
 
-#dialog{
-    float: right;
-    padding-left: 5rem;
+.liste h5{
+	color: white;
+	background-color: #3e3e3e;
+	border-radius: 5px;
+	font-family: DK Lemon Yellow Sun, 'Arial', sans-serif;
+	font-size: 1.5rem;
+	text-align: center;
+	margin: 0px;
+}
+
+footer {
+	background-color: #3e3e3e;
+	margin-right: auto;
+	margin-left: auto;
+}
+footer p {
+	font-size: 1rem;
+	text-align: center;
+	color: white;
+	font-family: DK Lemon Yellow Sun, 'Arial', sans-serif;
+	padding: 0.5rem;
+	margin: 0px;
 }
 
 

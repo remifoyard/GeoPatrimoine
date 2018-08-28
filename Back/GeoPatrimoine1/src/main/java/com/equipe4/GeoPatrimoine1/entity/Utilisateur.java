@@ -3,14 +3,14 @@ package com.equipe4.GeoPatrimoine1.entity;
 import javax.persistence.*;
 
 @Entity
-public class Authentification {
+public class Utilisateur {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "utilisateur")
-    private String utilisateur;
+    private String login;
 
     @Column(name = "motDePasse")
     private String motDePasse;
@@ -23,12 +23,12 @@ public class Authentification {
 		this.id = id;
 	}
 
-	public String getUtilisateur() {
-		return utilisateur;
+	public String getLogin() {
+		return login;
 	}
 
-	public void setUtilisateur(String utilisateur) {
-		this.utilisateur = utilisateur;
+	public void setUtilisateur(String login) {
+		this.login = login;
 	}
 
 	public String getMotDePasse() {

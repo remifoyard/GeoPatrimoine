@@ -6,11 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.equipe4.GeoPatrimoine1.entity.PatrimoineHistorique;
 import com.equipe4.GeoPatrimoine1.service.PatrimoineHistoriqueService;
@@ -19,6 +15,7 @@ import com.equipe4.GeoPatrimoine1.service.PatrimoineHistoriqueService;
 /**
  * Ressource REST pour l'entit� PatrimoineHistorique.
  */
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(value = "/api")
 public class PatrimoineHistoriqueController {
