@@ -10,7 +10,6 @@
 
 	<name>GeoPatrimoine1</name>
 	<description>Gestion Patrimoine</description>
-
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -29,6 +28,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		<!-- permet de partager les données d'authentification entre les deux serveurs -->
+		<dependency>
+		  <groupId>org.springframework.session</groupId>
+		  <artifactId>spring-session</artifactId>
+		  <version>1.0.0.RELEASE</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

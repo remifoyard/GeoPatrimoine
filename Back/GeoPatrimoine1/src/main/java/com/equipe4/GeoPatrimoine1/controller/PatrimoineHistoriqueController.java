@@ -15,7 +15,7 @@ import com.equipe4.GeoPatrimoine1.service.PatrimoineHistoriqueService;
 /**
  * Ressource REST pour l'entit� PatrimoineHistorique.
  */
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(value = "/api")
 public class PatrimoineHistoriqueController {

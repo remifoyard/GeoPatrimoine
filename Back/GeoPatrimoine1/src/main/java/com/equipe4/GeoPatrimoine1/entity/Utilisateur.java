@@ -14,6 +14,9 @@ public class Utilisateur {
 
     @Column(name = "motDePasse")
     private String motDePasse;
+    
+    
+    private String role;
 
 	public Long getId() {
 		return id;
@@ -37,6 +40,14 @@ public class Utilisateur {
 
 	public void setMotDePasse(String motDePasse) {
 		this.motDePasse = motDePasse;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
     
     

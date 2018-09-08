@@ -1,4 +1,4 @@
-package com.equipe4.GeoPatrimoine1.Configuration;
+package com.equipe4.GeoPatrimoine1.configuration;
 
 import java.io.IOException;
 
@@ -18,10 +18,12 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import com.equipe4.GeoPatrimoine1.service.UserDetailsServiceImpl.UserDetailsServiceImpl;
@@ -34,22 +36,31 @@ import com.equipe4.GeoPatrimoine1.service.UserDetailsServiceImpl.UserDetailsServ
 //@Profile("test")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
-	/**
-	 * Logger de la classe.
-	 */
+	
 	private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
 	private static final String ADMIN = "ADMIN";
-	private static final String USER = "USER";
-	private static final String MOT_DE_PASSE = "admin1234&";
+	private static final String USER = "admin";
+	private static final String MOT_DE_PASSE = "admin";
 	
+	// Permet de retourner les éléments de sécurité d'un utilisateur
 	@Autowired
 	private UserDetailsServiceImpl userDetailsServiceImpl;
 	
-	@SuppressWarnings("deprecation")
-	@Bean
-	public static NoOpPasswordEncoder passwordEncoder() {
-	return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
-	}
+	 @SuppressWarnings("deprecation")
+	 @Bean
+	 public static NoOpPasswordEncoder passwordEncoder() {
+	 return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+	 }
+//	@Bean
+//	CorsConfigurationSource corsConfigurationSource() {
+//		CorsConfiguration configuration = new CorsConfiguration();
+//		configuration.setAllowedOrigins(Arrays.asList("http://localhost:4200/*"));
+//		configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT"));
+//		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+//		source.registerCorsConfiguration("/**", configuration);
+//		return source;
+//	
+	//}
 	
 	/**
 	 * Defines the web based security configuration.
@@ -61,19 +72,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(final HttpSecurity http) throws Exception {
 		
 		LOGGER.debug("configure HttpSecurity IN");
+//		http.cors().
+//		and().csrf().disable();
+		
 		http.csrf().disable();
 	
 		http
 			.formLogin()
-//				.loginPage("/login.html")
-				.successHandler(new SuccessHandler());
+			.successHandler(new SuccessHandler());
 		
 		//H2 database console runs inside a frame, So we need to disable X-Frame-Options in Spring Security.
-		http.headers().frameOptions().disable();
+//		http.headers().frameOptions().disable();
 		
 		http.authorizeRequests()
-//				.antMatchers("/login.html").permitAll()
-				.antMatchers("/api/**").hasRole(ADMIN)
+				.antMatchers("/login.html").permitAll()
+				.antMatchers("/api/**").permitAll() //hasRole(ADMIN)
 				.anyRequest().authenticated()
 				;		
 	}
@@ -89,8 +102,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		LOGGER.debug("configureGlobal Mock");
 		
 		try {
-			auth.inMemoryAuthentication().withUser("admin").password(MOT_DE_PASSE).roles(ADMIN)
-					.and().withUser("inconnu@test.fr").password(MOT_DE_PASSE).roles(USER);
+			auth.inMemoryAuthentication().withUser(USER).password(MOT_DE_PASSE).roles(ADMIN);
 			
 			auth.authenticationProvider(new AuthenticationProvider() {
 				
@@ -116,30 +128,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	 */
 	public class SuccessHandler implements AuthenticationSuccessHandler {
 		@Override
-		public void onAuthenticationSuccess(final HttpServletRequest req, final HttpServletResponse res,
+		public void onAuthenticationSuccess(final HttpServletRequest request, final HttpServletResponse response,
 				final Authentication auth) throws IOException, ServletException {
 			LOGGER.debug("SuccessHandler IN");
 			try {
 				LOGGER.debug("auth.Name: {}",auth);
 				if (auth.isAuthenticated()) {
-					final UserDetails details = userDetailsServiceImpl.loadUserByUsername(auth.getName());
-					if (details == null) {
+					final UserDetails userDetails = userDetailsServiceImpl.loadUserByUsername(auth.getName());
+					if (userDetails == null) {
 						LOGGER.warn("Utilisateur {} n'existe pas dans la BDD ", auth.getName());
 						/* On renseigne les données d'authentification */
+						//Création d'un jeton d'authentification (chaine de caractères) à partir du login et password
 						final UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
-								details, "", null);
+								userDetails, "", null);
 						SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-						res.sendRedirect("/login");
+						response.sendRedirect("/api/patrimoineHistorique");
 					}else {
-						res.sendRedirect("api/patrimoineHistorique");
+						response.sendRedirect("api/patrimoineHistorique");
+						
 					}
 				}
 			} catch (final UsernameNotFoundException ex) {
 				LOGGER.error("", ex);
-				res.sendRedirect("/login");
+				response.sendRedirect("/login");
 			}
 		}
 	}
+	
+	
 }
 
 
