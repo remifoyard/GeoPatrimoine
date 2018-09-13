@@ -3,24 +3,24 @@
 	<div class="carte" style="height: 35rem;" leaflet
 		[leafletOptions]="options" [leafletLayers]="layer">
 	</div>
-	
+
 	<div class="liste">
 		<h5>Rechercher</h5>
-		
+
 		<button (click)="reset()">
 			<i class="material-icons"> home </i>
 		</button>
 		<a><img (click)="search()" src="../assets/Icone-Loupe.svg"></a>
-		
+
 		<input matInput type="text" [(ngModel)]=searchTag>
 
 		<mat-list role="list">
 			<div *ngFor="let element of arrData;">
 				<mat-list-item (click)="show($event)" role="listitem">
-				<span [hidden]=true>{{element.geoTag}};</span> {{element.nom}}
+          <button mat-button><span [hidden]=true>{{element.geoTag}};</span> {{element.nom}}</button>
 				</mat-list-item>
 			</div>
 		</mat-list>
 	</div>
-	
+
 </div>

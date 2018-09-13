@@ -9,7 +9,7 @@ import {MaterialModule} from './material/material.module';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { ListComponent } from './list/list.component';
 import { DialogComponent, DialogOverviewExampleDialog } from './dialog/dialog.component';
-import {MatInputModule} from '@angular/material';
+import {MatButtonModule, MatInputModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
@@ -25,9 +25,9 @@ import { SearchComponent } from './search/search.component';
     SearchComponent
   ],
   imports: [
-    BrowserModule,LeafletModule.forRoot(),MaterialModule,BrowserAnimationsModule,FormsModule,MatInputModule, AppRoutingModule,HttpClientModule
+    BrowserModule, LeafletModule.forRoot(), MaterialModule, BrowserAnimationsModule, FormsModule, MatInputModule, AppRoutingModule, HttpClientModule, MatButtonModule
   ],
-  providers: [DialogOverviewExampleDialog,HttpClient],
+  providers: [DialogOverviewExampleDialog, HttpClient],
   entryComponents:[DialogOverviewExampleDialog],
   bootstrap: [AppComponent]
 })
