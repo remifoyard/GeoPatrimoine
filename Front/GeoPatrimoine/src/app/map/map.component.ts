@@ -18,10 +18,10 @@ export class MapComponent implements OnInit {
   options:any;
   markers:any = [];
 
- 
+
 
   public arrData: string [];
-  constructor(private readApi : ReadApiService) { 
+  constructor(private readApi : ReadApiService) {
     this.options = {
       layers: [
         tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' })
@@ -32,15 +32,15 @@ export class MapComponent implements OnInit {
   }
   file='http://localhost:8080/api/patrimoineHistorique';
   ngOnInit() {
-    
+
     this.readApi.findAll(this.file).subscribe(
       data => {
         /*this.arrData = data as string [];	*/
-        this.donneesChargees(data); 
+        this.donneesChargees(data);
       }/*,
       (err: HttpErrorResponse) => {
         console.log (err.message);
-       
+
       }*/
     );
   }
@@ -57,6 +57,74 @@ console.log(obj);
           let longitude:any = i[obj2].split(',')[1];
           let latitude:any = i[obj2].split(',')[0];
           let nom:any = i['nom'];
+          let description:any = i['description'];
+          let lienImage:any = i['lienImage'];
+          let horaires:any = i['horaires'];
+          let adresse:any = i['adresse'];
+          let codePostal:any = i['codePostal'];
+          let commune:any = i['commune'];
+          let telephone:any = i['telephone'];
+          let tarif:any = i['tarif'];
+          let lienAudio:any = i['lienAudio'];
+
+          let textNom = '';
+
+          if (nom != null && nom !== 0) {
+            textNom = '<b>' + nom + '</b>';
+          }
+
+          let textDescription = '';
+
+          if (nom != null && nom !== 0) {
+            textDescription = '<br><br>' + description;
+          }
+
+          let textHoraires = '';
+
+          if (horaires != null && horaires !== 0) {
+            textHoraires = '<br><br>' + horaires;
+          }
+
+          let textTelephone = '';
+
+          if (telephone != null && telephone !== 0) {
+            textTelephone = '<br>0' + telephone;
+          }
+
+          let textTarif = '';
+
+          if (tarif != null && tarif !== 0 && tarif !== 'Gratuit') {
+            textTarif = '<br><b>Tarif : </b>' + tarif + '€';
+          } else if (tarif === 'Gratuit') {
+            textTarif = '<br><b>Tarif : </b>' + tarif;
+          }
+
+          let adresseComplete ='<br>';
+
+          if (adresse != null && adresse !== 0) {
+            adresseComplete += adresse;
+          }
+
+          if (codePostal != null && codePostal !== 0) {
+            adresseComplete += ' ' + codePostal;
+          }
+
+          if (commune != null && commune !== 0) {
+            adresseComplete += ' ' + commune;
+          }
+
+          let image = '';
+
+          if (lienImage != null && lienImage !== 0) {
+            image = '<br><br><div style="float: left; width: 120px; height:80px;"><img src="./assets/' + lienImage + '" width="100px" /></div><div>' + textTelephone + textTarif + adresseComplete + '</div><div style="clear: both;"></div>';
+          }
+
+          let textAudio = '';
+
+          if (lienAudio != null && lienAudio !== 0) {
+            textAudio = '<br><audio id="t-rex-roar" controls src="./assets/' + lienAudio + '"> Your browser does not support the <code>audio</code> element.</audio>';
+          }
+
           console.log(nom);
 
           this.markers.push(
@@ -68,12 +136,12 @@ console.log(obj);
                 iconUrl: 'assets/Logo-GeoPatrimoine.svg',
                 shadowUrl: 'assets/marker-shadow.png'
               })
-            }).bindPopup('<b>'+ nom +'</b>').openPopup()
+            }).bindPopup(textNom + textDescription + image  + textAudio).openPopup()
           );
         }
       }
     }
-    
+
     if (this.markers != null) {
       this.layer = this.markers;
     }
