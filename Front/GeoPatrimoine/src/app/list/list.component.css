@@ -1,21 +1,41 @@
-a img{
+img{
 	background-color: #3e3e3e;
 	border-radius: 5px;
 	width: 2rem;
 	height: 2rem;
-	
+	position: absolute;
 }
-
 
 .carte{
 	width:35rem;
 	display: inline-block;
 }
 
-.liste{
-	float: right;
-display: inline-block;
+input {
+	margin-left: 2.5rem;
+}
 
-margin-right: 5rem;
-margin-top: 1rem;
+.liste{
+    width: auto;
+    height: max-content;
+    margin-left: 0.5rem;
+	display: inline-block;
+	position: absolute;
+}
+
+.liste h5{
+	color: white;
+	background-color: #3e3e3e;
+	border-radius: 5px;
+	font-family: DK Lemon Yellow Sun, 'Arial', sans-serif;
+	font-size: 1.5rem;
+	text-align: center;
+	margin: 0px;
+	margin-bottom: 0.5rem;
+}
+
+mat-list-item {
+	border-width: 0.5px;
+	border-style: solid;
+	border-color: gray;
 }

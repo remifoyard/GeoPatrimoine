@@ -48,32 +48,6 @@ a img{
     margin-right: 0.5rem;
     float: left;
 }
-/*
-.liste{
-    background-color: #3e3e3e;
-    width: 19rem;
-    height: max-content;
-    display: inline-block;
-    margin-left: 0.5rem;
-}*/
-
-
-.liste{
-    background-color: #3e3e3e;
-    width: 60rem;
-    height: max-content;
-    display: inline-block;
-    margin-left: 0.5rem;
-}
-.liste h5{
-	color: white;
-	background-color: #3e3e3e;
-	border-radius: 5px;
-	font-family: DK Lemon Yellow Sun, 'Arial', sans-serif;
-	font-size: 1.5rem;
-	text-align: center;
-	margin: 0px;
-}
 
 footer {
 	background-color: #3e3e3e;
