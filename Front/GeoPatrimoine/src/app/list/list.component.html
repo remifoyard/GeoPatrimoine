@@ -1,21 +1,43 @@
 
-<!--<form color="primary">
-		<a><img (click)="search()" src="../assets/Icone-Loupe.svg" ></a>
-		<mat-form-field>
-			<input matInput type="text" [(ngModel)]=searchTag>
-		</mat-form-field>
-	</form>-->
+	<div class="container">
+
+
+
+	<div class="carte" style="height: 35rem;"
+	leaflet
+	[leafletOptions]="options"
+	[leafletLayers]="layer">
+</div>
+
+
+
+<div class="liste">
+		<button (click)="reset()">
+		
+				<i class="material-icons">
+					home
+					</i></button>
 	<a><img (click)="search()" src="../assets/Icone-Loupe.svg" ></a>
 	<input matInput type="text" [(ngModel)]=searchTag>
-	<button (click)="reset()">Reset</button>
+	
 <mat-list role="list">
   
 
+
+
 <div *ngFor="let element of arrData;">
+           <mat-list-item (click)="show($event)" role="listitem"><span [hidden]=true>{{element.geoTag}};</span> {{element.nom}}  </mat-list-item>
    
-        <mat-list-item role="listitem"> {{element.nom}}</mat-list-item>
-     
     
  
 </div>
 </mat-list>
+
+</div>
+
+
+
+
+
+
+</div>

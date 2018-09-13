@@ -3,4 +3,19 @@ a img{
 	border-radius: 5px;
 	width: 2rem;
 	height: 2rem;
+	
+}
+
+
+.carte{
+	width:35rem;
+	display: inline-block;
+}
+
+.liste{
+	float: right;
+display: inline-block;
+
+margin-right: 5rem;
+margin-top: 1rem;
 }

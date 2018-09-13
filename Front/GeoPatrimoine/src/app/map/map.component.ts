@@ -46,9 +46,9 @@ export class MapComponent implements OnInit {
   }
 
   donneesChargees(data){
-console.log(data);
+//console.log(data);
    let obj =data;
-console.log(obj);
+//console.log(obj);
 
     for (let i of obj) {
 
@@ -125,7 +125,7 @@ console.log(obj);
             textAudio = '<br><audio id="t-rex-roar" controls src="./assets/' + lienAudio + '"> Your browser does not support the <code>audio</code> element.</audio>';
           }
 
-          console.log(nom);
+          //console.log(nom);
 
           this.markers.push(
             marker([longitude, latitude], {
