@@ -13,6 +13,7 @@ import {MatInputModule} from '@angular/material';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import {HttpClientModule} from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClient } from '@angular/common/http';
     MapComponent,
     ListComponent,
     DialogComponent,
-    DialogOverviewExampleDialog
+    DialogOverviewExampleDialog,
+    SearchComponent
   ],
   imports: [
     BrowserModule,LeafletModule.forRoot(),MaterialModule,BrowserAnimationsModule,FormsModule,MatInputModule, AppRoutingModule,HttpClientModule
