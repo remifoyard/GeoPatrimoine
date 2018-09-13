@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Input} from '@angular/core';
 import { ReadApiService } from '../read-api.service';
+
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-list',
@@ -8,19 +10,42 @@ import { ReadApiService } from '../read-api.service';
   providers:[ReadApiService]
 })
 export class ListComponent implements OnInit {
-public arrData: string [];
-  constructor(private readApi : ReadApiService) { }
-  file='http://localhost:8080/api/patrimoineHistorique';
+ 
+
+  title = 'app';
+  arrData: string [];
+  arrData2: string [];
+url:string;
+searchTag:string;
+file='http://localhost:8080/api/patrimoineHistorique';
+  constructor(private readApi : ReadApiService,private http: HttpClient) { }
+ 
   ngOnInit() {
-    this.readApi.findAll(this.file).subscribe(
-      data => {
-        this.arrData = data as string [];	 
-      }/*,
-      (err: HttpErrorResponse) => {
-        console.log (err.message);
-       
-      }*/
-    );
+   this.reset();
   }
+
+reset(){
+  this.readApi.findAll(this.file).subscribe(
+    data => {
+      this.arrData = data as string [];	 
+    }
+  );
+}
+ngDoCheck(){
+  console.log(this.searchTag);
+}
+   
+  search(){
+    // this.url='http://localhost:8080/api/patrimoineHistoriqueTag/'+this.searchTag
+   this.http.get('http://localhost:8080/api/patrimoineHistoriqueTag/'+this.searchTag).subscribe(response=>{
+     this.arrData = response as string [];	   
+     });
+    
+  
+    
+    }
+
+  
+   
 
 }
