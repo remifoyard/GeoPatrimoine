@@ -156,7 +156,7 @@ reset(){
               let image = '';
 
               if (lienImage != null && lienImage !== 0) {
-                image = '<br><br><div style="float: left; width: 120px; height:80px;"><img src="./assets/' + lienImage + '" width="100px" /></div><div>' + textTelephone + textTarif + adresseComplete + '</div><div style="clear: both;"></div>';
+                image = '<br><br><div style="float: left; width: 120px; height:80px;"><img src="./assets/' + lienImage + '" width="100px" style="max-height: 80px;" /></div><div>' + textTelephone + textTarif + adresseComplete + '</div><div style="clear: both;"></div>';
               }
 
               let textAudio = '';
